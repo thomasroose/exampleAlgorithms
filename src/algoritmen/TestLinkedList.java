@@ -57,5 +57,10 @@ public class TestLinkedList {
 		linkedlist.prepend("2");
 		assertEquals("1", linkedlist.last());
 	}
+	
+	@Test
+	public void testFind(){
+		assertTrue(linkedlist.find("1"));
+	}
 
 }
