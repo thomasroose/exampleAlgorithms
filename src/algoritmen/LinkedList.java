@@ -12,8 +12,13 @@ public class LinkedList<T> {
 	private Node head;
 	private int size;
 	
-	
-	
+	/**
+	 * Constructor of an empty list
+	 */
+	public LinkedList(){
+		head = null;
+		size = 0;
+	}
 	
 	/**
 	 * Constructor for a linked list with one element
@@ -23,6 +28,11 @@ public class LinkedList<T> {
 	public LinkedList(T element){
 		head = new Node(element);
 		size = 1;
+	}
+	
+	private LinkedList(Node node){
+		head = node;
+		size = count();
 	}
 	
 	/**
@@ -55,10 +65,26 @@ public class LinkedList<T> {
 	
 	/**
 	 * 
+	 * @return the linked list without the head element
+	 */
+	public LinkedList<T> tail(){
+		return new LinkedList<T>(head.next());
+	}
+	
+	/**
+	 * 
 	 * @return true is empty, false is not empty
 	 */
 	public boolean isEmpty(){
 		return size == 0;
+	}
+	
+	private int count(){
+		int total = 1;
+		while(head.next() != null){
+			total++;
+		}
+		return total;
 	}
 	
 	private class Node{
@@ -77,6 +103,10 @@ public class LinkedList<T> {
 		
 		public T get(){
 			return element;
+		}
+		
+		public Node next(){
+			return next;
 		}
 	}
 }
