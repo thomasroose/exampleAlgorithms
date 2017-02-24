@@ -43,5 +43,19 @@ public class TestLinkedList {
 		assertEquals("1",result.first());
 		assertEquals(1,result.size());
 	}
+	
+	@Test
+	public void testTailOfALinkedListWithOneElement(){
+		LinkedList<String> result = linkedlist.tail();
+		assertEquals(null, result.first());
+		assertEquals(0, result.size());
+	}
+	
+	@Test
+	public void testLast(){
+		assertEquals("1",linkedlist.last());
+		linkedlist.prepend("2");
+		assertEquals("1", linkedlist.last());
+	}
 
 }

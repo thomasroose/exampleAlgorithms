@@ -52,12 +52,25 @@ public class LinkedList<T> {
 	 * @return the head of the list
 	 */
 	public T first(){
+		if(head == null) return null;
 		return head.get();
 	}
 	
 	/**
 	 * 
-	 * @return the number of element in the linked list
+	 * @return the last element of the list
+	 */
+	public T last(){
+		Node cursor = head;
+		while(cursor.next() != null){
+			cursor = cursor.next();
+		}
+		return cursor.get();
+	}
+	
+	/**
+	 * 
+	 * @return the number of elements in the linked list
 	 */
 	public int size(){
 		return size;
@@ -80,6 +93,7 @@ public class LinkedList<T> {
 	}
 	
 	private int count(){
+		if(head == null) return 0;
 		int total = 1;
 		while(head.next() != null){
 			total++;
